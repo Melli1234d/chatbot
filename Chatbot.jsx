@@ -13,8 +13,6 @@ function TestChatBot() {
         questionDiv.className=divID; //id
         questionDiv.innerHTML=divValue; //text
         chatBox.appendChild(questionDiv); //neues div element erstellen
-        console.log("DIV VALUE:");
-        console.log(divValue);
     }
 
 
@@ -25,31 +23,23 @@ function TestChatBot() {
 
 
     const handleClick = () => {
-        console.log("handleClick:\n");
-        console.log(userQuestion);
  //mögliche antworten auf die Fragen
         answerQuestion(userQuestion, [
             {id: 'doc1', text: 'Es gibt sehr viele Orte wo du Bücher hinspenden kannst. Welches Genre sind die Bücher?'},
             {id: 'doc2', text: 'Darüber habe ich leider keine Kenntnisse. Kann ich dir sonst noch helfen?'},
-            // {id: 'doc3', text: 'Wenn du Bücher für Kinder kannst du da hin schicken: Kinderorganisationen:'},
+            {id: 'doc3', text: 'Wenn du Bücher für Kinder kannst du da hin schicken: Kinderorganisationen:'},
             {id: 'doc4', text: 'Alte Klamotten kannst du hier her spenden: '},
-            // {id: 'doc5', text: 'Du kannst alle möglichen Gegenstände spenden. Zum Beispiel kannst du: Bücher,DVDs,Klamotten spenden. Was möchtest du gerne spenden?'},
+            {id: 'doc5', text: 'Du kannst alle möglichen Gegenstände spenden. Zum Beispiel kannst du: Bücher,DVDs,Klamotten spenden. Was möchtest du gerne spenden?'},
             {id: 'doc6', text: 'Du kannst auch deine Bücher von einem abholservice abholen lassen.'},
         ]).then(answers => {
-
-            // console.log(answers.answers[0].answer);
             setCustomAnswer(answers.answers[0].answer); //setzen der Bot Nachricht
             myDiv(getUserID(), userQuestion); //vom User die id für das div holen und in das Div den text vom input feld rein tun
             myDiv(getBotID(), answers.answers[0].answer); //vom Bot die id für das div holen + texxt aus antwortmöglichkeiten
         })
         clearInputField();
-        // handleClick.push(userQuestion);
-        // handleClick.push(customanswer);
 
     }
     const handleChange = event => {
-        console.log("Am in handleChange and am using this funktion");
-        console.log(event.target.value);
         setUserQuestion(event.target.value); //text von user nachricht setzen
         document.getElementById('messageeingabe').value=event.target.value;
     };
@@ -70,20 +60,6 @@ function TestChatBot() {
             <div id="chatbox" >
                 <div className="kontaktname"> <p>Chatbot </p><div> <img  src={chatbotbild} alt="chatbotbild" height={60} width={60} /></div></div>
                 <div className={getBotID()}> Hallo, wie kann ich dir behilflich sein? </div>
-                {/*<div className="{getUserID()}"*/}
-                {/*     type="text"*/}
-                {/*     id="messageeingabe"*/}
-                {/*     name="message"*/}
-                {/*     onChange={handleChange}*/}
-                {/*     value={userQuestion}>{userQuestion}*/}
-                {/*</div>*/}
-                {/*<div className="{getBotID()}"*/}
-                {/*     type="text"*/}
-                {/*     id="messageeingabe"*/}
-                {/*     name="message"*/}
-                {/*     onChange={handleChange}*/}
-                {/*     value={customanswer}>{customanswer}*/}
-                {/*</div>*/}
             </div>
             <input className="inputfield"
                 type="text"
