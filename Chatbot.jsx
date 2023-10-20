@@ -1,4 +1,4 @@
-function TestChatBot() {
+function ChatBot() {
     const [customanswer, setCustomAnswer ] = useState('');
     const [userQuestion, setUserQuestion ] = useState('');
     const userID='react-chatbot-kit-user-chat-message'; //Class der Bot Nachricht (div)
@@ -73,4 +73,4 @@ function TestChatBot() {
 
 }
 
-export default TestChatBot;
+export default ChatBot;
