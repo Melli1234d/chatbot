@@ -4,9 +4,6 @@ function ChatBot() {
     const userID='react-chatbot-kit-user-chat-message'; //Class der Bot Nachricht (div)
     const botID='react-chatbot-kit-chat-bot-message';// Class vom User (div)
 
-
-
-
     function myDiv(divID, divValue){
         const chatBox = document.querySelector('#chatbox');//chatbox id div setzen
         const questionDiv= document.createElement('div'); //div element erstellen
@@ -15,12 +12,9 @@ function ChatBot() {
         chatBox.appendChild(questionDiv); //neues div element erstellen
     }
 
-
     function clearInputField() {
         document.getElementById("messagefield").value = "";
     }
-
-
 
     const handleClick = () => {
  //mögliche antworten auf die Fragen
@@ -37,8 +31,8 @@ function ChatBot() {
             myDiv(getBotID(), answers.answers[0].answer); //vom Bot die id für das div holen + texxt aus antwortmöglichkeiten
         })
         clearInputField();
-
     }
+
     const handleChange = event => {
         setUserQuestion(event.target.value); //text von user nachricht setzen
         document.getElementById('messageeingabe').value=event.target.value;
@@ -51,11 +45,7 @@ function ChatBot() {
         return botID; //die ID zurückgeben für das div bot
     }
 
-
-
-
     return (
-
         <div>
             <div id="chatbox" >
                 <div className="kontaktname"> <p>Chatbot </p><div> <img  src={chatbotbild} alt="chatbotbild" height={60} width={60} /></div></div>
@@ -70,7 +60,5 @@ function ChatBot() {
             <button onClick={handleClick}><AiOutlineSend className="message-send" size={20} color="#00158B"/></button>
         </div>
     );
-
 }
-
 export default ChatBot;
