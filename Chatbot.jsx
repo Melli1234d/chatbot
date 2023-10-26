@@ -5,11 +5,11 @@ function ChatBot() {
     const botID='react-chatbot-kit-chat-bot-message';// Class vom User (div)
 
     function myDiv(divID, divValue){
-        const chatBox = document.querySelector('#chatbox');//chatbox id div setzen
+        const chatBox = document.querySelector('#chatbox');//Chatbox id div setzen
         const questionDiv= document.createElement('div'); //div element erstellen
-        questionDiv.className=divID; //id
-        questionDiv.innerHTML=divValue; //text
-        chatBox.appendChild(questionDiv); //neues div element erstellen
+        questionDiv.className=divID; //Id
+        questionDiv.innerHTML=divValue; //Text
+        chatBox.appendChild(questionDiv); //neues div Element erstellen
     }
 
     function clearInputField() {
@@ -17,7 +17,7 @@ function ChatBot() {
     }
 
     const handleClick = () => {
- //mögliche antworten auf die Fragen
+ //mögliche Antworten auf die Fragen
         answerQuestion(userQuestion, [
             {id: 'doc1', text: 'Es gibt sehr viele Orte wo du Bücher hinspenden kannst. Welches Genre sind die Bücher?'},
             {id: 'doc2', text: 'Darüber habe ich leider keine Kenntnisse. Kann ich dir sonst noch helfen?'},
@@ -27,22 +27,22 @@ function ChatBot() {
             {id: 'doc6', text: 'Du kannst auch deine Bücher von einem abholservice abholen lassen.'},
         ]).then(answers => {
             setCustomAnswer(answers.answers[0].answer); //setzen der Bot Nachricht
-            myDiv(getUserID(), userQuestion); //vom User die id für das div holen und in das Div den text vom input feld rein tun
-            myDiv(getBotID(), answers.answers[0].answer); //vom Bot die id für das div holen + texxt aus antwortmöglichkeiten
+            myDiv(getUserID(), userQuestion); //vom User die id für das div holen und in das Div den text vom Input Feld rein tun
+            myDiv(getBotID(), answers.answers[0].answer); //vom Bot die id für das div holen + Text aus Antwortmöglichkeiten
         })
         clearInputField();
     }
 
     const handleChange = event => {
-        setUserQuestion(event.target.value); //text von user nachricht setzen
+        setUserQuestion(event.target.value); //Text von User Nachricht setzen
         document.getElementById('messageeingabe').value=event.target.value;
     };
 
     function getUserID(){
-        return userID; //die ID zurückgeben für das div user
+        return userID; //die ID zurückgeben für das div User
     }
     function getBotID(){
-        return botID; //die ID zurückgeben für das div bot
+        return botID; //die ID zurückgeben für das div Bot
     }
 
     return (
